@@ -27,8 +27,6 @@ function LoginCtrl ($scope, $location, fb) {
 
     console.log('[onLoginClick] ...');
     fb.login(response => {
-      debugger;
-
       let {status} = response;
       if (status === 'connected') {
         console.info('[onLoginClick] Redirecting to /timeline...');
@@ -38,6 +36,9 @@ function LoginCtrl ($scope, $location, fb) {
       else {
         $scope.errorMessage = 'Could not connect with Facebook';
       }
+    },
+    {
+      scope: 'public_profile,email,user_posts'
     });
   };
 }
