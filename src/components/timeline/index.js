@@ -87,7 +87,7 @@ function TimelineCtrl ($q, $scope, fb, $http) {
   }
 
   function isPicture (post) {
-    return false;
+    return post.story && post.story.indexOf('photos') !== -1;
   }
 
   function isStatus (post) {
@@ -107,6 +107,24 @@ function TimelineCtrl ($q, $scope, fb, $http) {
   }
 }
 TimelineCtrl.$inject = ['$q','$scope', 'Facebook', '$http'];
+
+mod.directive('uiPostPicture', ['Facebook', function (fb) {
+  return {
+    restrict: 'E',
+    scope: {},
+    link: function (scope, elm, attrs) {
+      const postId = attrs['postId'];
+
+      fb.api('/' + postId + '?fields=full_picture', {access_token: FB.getAccessToken()}, res => {
+        if (!res.full_picture) {
+          return;
+        }
+        const imageUrl = res.full_picture
+        elm.html(`<img src="${imageUrl}">`);
+      });
+    }
+  }
+}]);
 
 mod.config(['$routeProvider',
   ($routeProvider) => {
