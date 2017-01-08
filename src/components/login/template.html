@@ -1,0 +1,18 @@
+<div class="container login-container">
+  <div class="row">
+    <div class="col-sm-12 col-md-6 col-md-push-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">Connect with Facebook</div>
+        <div class="panel-body">
+          <div class="alert alert-danger" ng-show="!!errorMessage" ng-bind="errorMessage"></div>
+
+          <div class="text-center">
+            <button ng-disabled="!isEnabled"
+                    ng-click="onLoginClick()"
+                    class="btn btn-primary btn-lg">Login with Facebook</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

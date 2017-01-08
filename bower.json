@@ -1,0 +1,24 @@
+{
+  "name": "fbdigest",
+  "description": "Facebook Digest webapp",
+  "main": "index.js",
+  "authors": [
+    "Khanh Hua"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "Facebook",
+    "Digest"
+  ],
+  "homepage": "https://github.com/khanhhua/fbdigest",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-facebook": "^0.2.3"
+  }
+}
